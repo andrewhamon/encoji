@@ -1,6 +1,6 @@
 {
   "name": "encoji",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Encode data as emojis!",
   "main": "index.js",
   "scripts": {
