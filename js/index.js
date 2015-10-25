@@ -1,11 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.encode = encode;
-exports.decode = decode;
-require("babel/polyfill");
+require('babel/polyfill');
 
 function makeEncoding(decode) {
   var base64Runes = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=");
@@ -51,4 +46,6 @@ function decode(raw) {
   raw = new Buffer(raw, "base64");
   return raw.toString();
 }
+
+module.exports = { encode: encode, decode: decode };
 

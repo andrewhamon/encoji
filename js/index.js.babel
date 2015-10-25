@@ -1,4 +1,4 @@
-require("babel/polyfill")
+require('babel/polyfill')
 
 function makeEncoding(decode) {
   var base64Runes = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=")
@@ -33,14 +33,16 @@ function makeMapper(encoding) {
   }
 }
 
-export function encode(raw) {
+function encode(raw) {
   raw = new Buffer(raw)
   raw = raw.toString("base64")
   return Array.from(raw, makeMapper(makeEncoding(false))).join("")
 }
 
-export function decode(raw) {
+function decode(raw) {
   raw = Array.from(raw, makeMapper(makeEncoding(true))).join("")
   raw = new Buffer(raw, "base64")
   return raw.toString()
 }
+
+module.exports = {encode, decode}
