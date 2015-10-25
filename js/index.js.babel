@@ -1,3 +1,5 @@
+require("babel/polyfill")
+
 function makeEncoding(decode) {
   var base64Runes = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=")
   var encojiRunes = Array.from("😀😬😁😂😃😄😅😆😇😉😊😋😌😍😘😗😙😚😜😝😛😎😏💩👻😺😸😹😻🐶🐱🐭🐹🐰🐻🐼🐨🐯🐮🐷🐽🐸🐙🐵🙈🙉🙊🐒🐔🐧🐦🐤🐣🐥🐺🐗🐴🐝🐛🐌🐞🐜🐘🐬🐳")

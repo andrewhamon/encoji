@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.encode = encode;
 exports.decode = decode;
+require("babel/polyfill");
+
 function makeEncoding(decode) {
   var base64Runes = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=");
   var encojiRunes = Array.from("😀😬😁😂😃😄😅😆😇😉😊😋😌😍😘😗😙😚😜😝😛😎😏💩👻😺😸😹😻🐶🐱🐭🐹🐰🐻🐼🐨🐯🐮🐷🐽🐸🐙🐵🙈🙉🙊🐒🐔🐧🐦🐤🐣🐥🐺🐗🐴🐝🐛🐌🐞🐜🐘🐬🐳");
