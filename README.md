@@ -11,7 +11,7 @@ Encode your data as Emojis!
 Encodes standard in by default
 
 ```
-echo "Hello, world!" | encoji
+echo 'Hello, world!' | encoji
 😜😅😎🙈😹😅🐞🙈😇😆🐶🐒😻🐮🐧🐨😇😙🐽🐳
 ```
 
