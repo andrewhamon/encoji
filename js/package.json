@@ -1,0 +1,20 @@
+{
+  "name": "encoji",
+  "version": "1.0.0",
+  "description": "Encode data as emojis!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrewhamon/encoji/js"
+  },
+  "keywords": [
+    "encoding",
+    "emoji",
+    "base64"
+  ],
+  "author": "Andrew Hamon",
+  "license": "MIT"
+}
