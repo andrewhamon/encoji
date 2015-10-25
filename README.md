@@ -1,6 +1,6 @@
 # Encoji
 
-Encode your data as Emojis!
+Encode data as emojis!
 
 ## Install
 
@@ -8,14 +8,14 @@ Encode your data as Emojis!
 
 ## Usage
 
-Encodes standard in by default
+Encode stdin:
 
 ```
 echo 'Hello, world!' | encoji
 😜😅😎🙈😹😅🐞🙈😇😆🐶🐒😻🐮🐧🐨😇😙🐽🐳
 ```
 
-Decode standard in using `-d`
+Decode stdin using `-d` flag:
 ```
 echo '😜😅😎🙈😹😅🐞🙈😇😆🐶🐒😻🐮🐧🐨😇😙🐽🐳 ' | encoji -d
 Hello, world!
