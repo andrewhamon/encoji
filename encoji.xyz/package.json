@@ -1,0 +1,49 @@
+{
+  "name": "encoji.xyz",
+  "version": "1.0.0",
+  "description": "Encode your data as emojis... on the web!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewhamon/encoji.git"
+  },
+  "keywords": [
+    "emoji",
+    "base64",
+    "react",
+    "encoding"
+  ],
+  "author": "Andrew Hamon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrewhamon/encoji/issues"
+  },
+  "homepage": "https://github.com/andrewhamon/encoji#readme",
+  "dependencies": {
+    "autosize": "^3.0.13",
+    "encoji": "^1.0.3",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0"
+  },
+  "devDependencies": {
+    "babel": "^5.8.29",
+    "babelify": "^6.4.0",
+    "browser-sync": "^2.9.11",
+    "browserify": "^11.2.0",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-stylus": "^2.1.0",
+    "gulp-util": "^3.0.7",
+    "lodash": "^3.10.1",
+    "nib": "^1.1.0",
+    "run-sequence": "^1.1.4",
+    "stylus": "^0.52.4",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.4.0"
+  }
+}

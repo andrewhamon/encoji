@@ -1,0 +1,101 @@
+var gulp = require('gulp')
+var sequence = require('run-sequence')
+var sourcemaps = require('gulp-sourcemaps')
+var plumber = require('gulp-plumber')
+
+var stylus = require('gulp-stylus')
+var nib = require('nib')
+
+var browserify = require('browserify')
+var watchify = require('watchify')
+var gutil = require('gulp-util')
+var source = require('vinyl-source-stream')
+var babelify = require('babelify')
+
+var del = require('del')
+
+var browserSync = require('browser-sync')
+
+var assign = require('lodash').assign
+
+// *************************************************************************************************
+// Top-level tasks
+// *************************************************************************************************
+
+gulp.task('default', ['build'])
+
+gulp.task('serve', ['build', 'bundle:watch'], function () {
+  browserSync.init({
+    server: {
+      baseDir: 'build'
+    }
+  })
+
+  gulp.watch('index.html', ['pages'])
+  gulp.watch('styles/**/*.styl', ['styles'])
+})
+
+gulp.task('build', function () {
+  return sequence('clean', ['styles', 'bundle', 'pages', 'cname', 'assets'])
+})
+
+// *************************************************************************************************
+// Sub-tasks
+// *************************************************************************************************
+
+gulp.task('clean', function (cb) {
+  return del(['build/**/*'], cb)
+})
+
+gulp.task('styles', function () {
+  return gulp.src('styles/main.styl')
+    .pipe(plumber())
+    .pipe(sourcemaps.init())
+    .pipe(stylus({use: [nib()]}))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('build/styles'))
+    .pipe(browserSync.stream())
+})
+
+gulp.task('assets', function () {
+  return gulp.src('assets/**/*')
+    .pipe(gulp.dest('build/assets'))
+    .pipe(browserSync.stream())
+})
+
+gulp.task('pages', function () {
+  return gulp.src('index.html')
+    .pipe(gulp.dest('build'))
+    .pipe(browserSync.stream())
+})
+
+gulp.task('cname', function () {
+  return gulp.src('CNAME')
+    .pipe(gulp.dest('build'))
+    .pipe(browserSync.stream())
+})
+
+gulp.task('bundle', function () { return bundle() })
+gulp.task('bundle:watch', function () { return bundle({watch: true}) })
+
+var bundlOpts = { debug: false }
+var bundler = browserify('scripts/app.js', assign(bundlOpts, watchify.args))
+bundler.transform(babelify)
+
+function bundle (opts) {
+  if (opts && 'watch' in opts && opts.watch) {
+    bundler = watchify(bundler)
+    bundler.on('update', bundle)
+  }
+
+  return bundler.bundle()
+    .on('error', function (error) {
+      gutil.log(error.toString())
+      this.emit('end')
+      browserSync.notify('Browserify error')
+    })
+    .pipe(plumber())
+    .pipe(source('bundle.js'))
+    .pipe(gulp.dest('build/scripts'))
+    .pipe(browserSync.stream())
+}
