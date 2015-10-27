@@ -2,50 +2,31 @@
 
 global-reset()
 
-site-width = 800px
-
 body
   display: flex
   min-height: 100vh
   flex-direction: column
   align-items: center
 
-#app
-  max-width: site-width
-  flex: 1
-  display: flex
-  align-items: center
-
 h1
-  margin-top: 0.75em
-  @media(max-width: site-width)
-    margin-top: 0.25em
+  margin-top: 0.25em
+
+#app
+  flex: 1
+  margin: 1em 0.5em
 
 textarea
   resize: none
   outline: none
   border-radius: 3px
-  flex-grow: 1
+  border: 1px solid black
   min-height: 6em
-  @media(max-width: site-width)
-    margin-top: 0.5em
-    width: 100%
+  margin-top: 0.25em
+  width: 100%
 
 .encode-group
-  display: flex
-  margin: 1em 0
-  min-height: 6em
-  @media(max-width: site-width)
-    flex-direction: column
-    margin: 1em 1em
-  @media(min-width: site-width)
-    align-items: center
-
-.instructions
-  flex-grow: 1
-  @media(min-width: site-width)
-    flex-basis: 0
+  margin: 0.5em
 
 footer
-  margin-bottom: 0.5em
+  padding-bottom: 0.5em
 
